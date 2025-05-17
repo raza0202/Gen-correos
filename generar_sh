@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo -e "\e[1;36m
+╭━━━╮
+┃╭━╮┃
+┃┃╱╰╋━━┳━╮
+┃┃╭━┫┃━┫╭╮╮
+┃╰┻━┃┃━┫┃┃┃
+╰━━━┻━━┻╯╰╯
+╭━━━╮
+┃╭━╮┃
+┃┃╱╰╋━━┳━┳━┳━━┳━━┳━━╮
+┃┃╱╭┫╭╮┃╭┫╭┫┃━┫╭╮┃━━┫
+┃╰━╯┃╰╯┃┃┃┃┃┃━┫╰╯┣━━┃
+╰━━━┻━━┻╯╰╯╰━━┻━━┻━━╯\e[0m"
+
+echo -e "\e[31mgenerador de correo\e[0m"
+
+echo "Bienvenido al generador de correos"
+
+echo "Ingrese la cantidad de correos que desea generar:"
+read cantidad_correos
+
+echo "Generando $cantidad_correos correos..."
+
+for ((i=1; i<=cantidad_correos; i++))
+do
+    correo_hotmail="correo$i@hotmail.com"
+    correo_gmail="correo$i@gmail.com"
+    correo_outlook="correo$i@outlook.com"
+
+    echo "$correo_hotmail" >> /sdcard/correos_hotmail.txt
+    echo "$correo_gmail" >> /sdcard/correos_gmail.txt
+    echo "$correo_outlook" >> /sdcard/correos_outlook.txt
+done
+
+echo "Correos generados exitosamente. Puedes encontrar los resultados en la tarjeta SD."
